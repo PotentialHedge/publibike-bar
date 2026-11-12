@@ -12,9 +12,9 @@ Requires macOS 14 (Sonoma) or newer. Universal binary (Apple Silicon and Intel).
 ## Install
 
 ```sh
-brew tap benedict-armstrong/tap
-brew trust --tap benedict-armstrong/tap   # Homebrew 7+ asks you to trust third-party taps once
-brew install --cask benedict-armstrong/tap/publibike
+brew tap potentialhedge/tap
+brew trust --tap potentialhedge/tap   # Homebrew 7+ asks you to trust third-party taps once
+brew install --cask potentialhedge/tap/publibike
 ```
 
 Then open **PubliBike** from Applications. Allow location access when asked, so it can show the station nearest you. To start it automatically, open the panel, click ⚙︎ and choose **Launch at Login**.
@@ -23,7 +23,7 @@ The app isn't signed with an Apple Developer ID. The cask therefore removes the 
 
 ### Manual install
 
-Download `PubliBike-<version>.zip` from [Releases](https://github.com/benedict-armstrong/publibike-bar/releases), unzip it, and move `PubliBike.app` to Applications. The first time you open it, macOS will block it: go to **System Settings → Privacy & Security** and click **Open Anyway**.
+Download `PubliBike-<version>.zip` from [Releases](https://github.com/PotentialHedge/publibike-bar/releases), unzip it, and move `PubliBike.app` to Applications. The first time you open it, macOS will block it: go to **System Settings → Privacy & Security** and click **Open Anyway**.
 
 ## Build from source
 
@@ -49,7 +49,7 @@ This project isn't affiliated with PubliBike AG.
 1. Bump `CFBundleShortVersionString` in `PubliBikeBar/Info.plist`.
 2. Run `make dist`.
 3. Create a GitHub release `vX.Y` with the zip attached.
-4. Update `version` and `sha256` in `Casks/publibike.rb` in [homebrew-tap](https://github.com/benedict-armstrong/homebrew-tap).
+4. Update `version` and `sha256` in `Casks/publibike.rb` in [homebrew-tap](https://github.com/PotentialHedge/homebrew-tap).
 
 ## Also included
 
