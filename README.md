@@ -12,6 +12,8 @@ Requires macOS 14 (Sonoma) or newer. Universal binary (Apple Silicon and Intel).
 ## Install
 
 ```sh
+brew tap benedict-armstrong/tap
+brew trust --tap benedict-armstrong/tap   # Homebrew 7+ asks you to trust third-party taps once
 brew install --cask benedict-armstrong/tap/publibike
 ```
 
@@ -27,7 +29,7 @@ Download `PubliBike-<version>.zip` from [Releases](https://github.com/benedict-a
 
 ```sh
 cd PubliBikeBar
-make install   # build for this Mac and copy to ~/Applications
+make install   # build for this Mac and copy to /Applications (replaces the Homebrew copy)
 make dist      # universal zip in build/, prints its sha256
 ```
 

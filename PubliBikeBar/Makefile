@@ -1,5 +1,5 @@
 APP      := build/PubliBike.app
-DEST     := $(HOME)/Applications
+DEST     := /Applications
 VERSION  := $(shell /usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' Info.plist)
 ZIP      := build/PubliBike-$(VERSION).zip
 
