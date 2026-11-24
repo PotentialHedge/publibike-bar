@@ -1,0 +1,6 @@
+# render outputs and local inputs
+*.gif
+data/
+tiles/
+frames*/
+preview*/

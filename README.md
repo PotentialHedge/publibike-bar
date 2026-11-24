@@ -51,6 +51,16 @@ This project isn't affiliated with PubliBike AG.
 3. Create a GitHub release `vX.Y` with the zip attached.
 4. Update `version` and `sha256` in `Casks/publibike.rb` in [homebrew-tap](https://github.com/PotentialHedge/homebrew-tap).
 
+## iPhone widget
+
+`scriptable/PubliBike.js` is a home screen and lock screen widget for the free [Scriptable](https://apps.apple.com/app/scriptable/id1405459188) app. It shows the same live counts for your favourites, nearest first.
+
+1. Install Scriptable, tap **+**, paste in the contents of `PubliBike.js`, and name the script "PubliBike". Or put the file in the Scriptable folder in iCloud Drive.
+2. Edit `FAVORITES` at the top of the script. To look up an ID, run the script in Scriptable and choose **Find station ID**.
+3. Add a Scriptable widget (small, medium, large, or on the lock screen), long-press it → **Edit Widget**, and pick the PubliBike script.
+
+To show different stations in different widgets, set the widget's **Parameter** to a comma-separated list of IDs, e.g. `1154,1163`. For nearest-first sorting, allow Scriptable location access ("While Using the App or Widgets"). iOS decides how often widgets refresh, usually every 5 to 15 minutes.
+
 ## Also included
 
 `swiftbar/publibike.1m.py` is the original [SwiftBar](https://github.com/swiftbar/SwiftBar) plugin version (Python, no dependencies).
