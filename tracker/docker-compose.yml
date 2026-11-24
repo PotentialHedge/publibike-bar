@@ -1,0 +1,31 @@
+name: publibike-tracker
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: publibike
+      POSTGRES_PASSWORD: publibike
+      POSTGRES_DB: publibike
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:55441:5432"   # local only; use an ssh tunnel for analysis
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U publibike"]
+      interval: 10s
+      retries: 10
+  poller:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      DATABASE_URL: postgresql://publibike:publibike@db:5432/publibike
+      GBFS_AUTH_EMAIL: agent.benedict@potentialhedge.com
+      POLL_SECONDS: "60"
+    volumes:
+      - ./raw:/data/raw
+    logging:
+      driver: json-file
+      options: {max-size: "20m", max-file: "3"}
